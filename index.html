@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+    <div id="container"></div>
+    <script>
+      const btn = document.getElementById("btn");
+      const container = document.getElementById("container");
+      const data = new Array(10000).fill(0).map((_, i) => `this is content ${i}`);
+
+      btn.onclick = () => {
+        const innerHTML = data
+          .map(
+            (content, i) => `<div>
+          <p>${i}</p>
+          ${content}
+          <p>some thing...</P>
+          </div>`
+          )
+          .join("");
+        container.innerHTML = innerHTML;
+      };
+    </script>
+  </body>
+</html>
